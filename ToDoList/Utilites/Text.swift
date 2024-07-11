@@ -11,7 +11,7 @@ struct Info{
     //EmptyState
     struct EmptyState{
         static let noTasks: String = "No tasks to do"
-        static let  transcription: String = "Create your new task to get started your career!"
+        static let  transcription: String = "Create a new task for your career to get started!"
     }
     
     //AddButton
