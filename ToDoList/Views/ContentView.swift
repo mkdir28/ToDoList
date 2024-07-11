@@ -9,13 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var viewModel = Functiin()
-//    @StateObject var todoViewModel = ToDoListViewModel()
-//    @EnvironmentObject var order: Order
+    @StateObject var viewModel = ToDoListViewModel()
     
     @State var newTask:String = ""
-    
-    @State var newDeadline:Date?
     
     @State private var addTask = false
 
@@ -25,14 +21,14 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            NavigationView{
-                ZStack{
-                    VStack{
-                        if viewModel.isLoading{
-                            LoadingView()
-                        } else if viewModel.isEmpty{
+            NavigationView {
+                VStack {
+                    if viewModel.isLoading {
+                        LoadingView()
+                    } else {
+                        if viewModel.isEmpty {
                             EmptyState()
-                        } else{
+                        } else {
                             List {
                                 ForEach($viewModel.tasks) { $task in
                                     HStack {
@@ -45,43 +41,27 @@ struct ContentView: View {
                                         Text(task.taskName)
                                     }
                                 }
+                                
                                 .onDelete(perform: viewModel.delete)
                             }
-                            //                            .toolbar{
-                            //                                ToolbarItem(placement: .bottomBar){
-                            //                                    Button(action: presentAddReminderView){
-                            //                                        VStack{
-                            //
-                            //                                            AddButton()
-                            //                                        }
-                            //                                        .padding(.bottom, 150)
-                            //                                    }
-                            //                                }
-                            //                            }
                         }
                     }
-//                    .navigationTitle(Info.Logo.logoText)
-//                    .sheet(isPresented: $addTask) {
-//                        AddToDoList{ adding in
-//                            viewModel.add(adding)
-//                        }
-//                    }
-                    
                 }
-
-//                .toolbar{
-//                    ToolbarItem(placement: .bottomBar){
-//                        Button(action: presentAddReminderView){
-//                            VStack{
-//                            
-//                                AddButton()
-//                            }
-//                            .padding(.bottom, 150)
-//                        }
-//                    }
-//                }
+                .navigationTitle(Info.Logo.logoText)
+                .toolbar {
+                    ToolbarItem(placement: .bottomBar) {
+                        Button(action: presentAddReminderView) {
+                            AddButton()
+                        }
+                        .offset(y: -50)
+                    }
+                }
+                .sheet(isPresented: $addTask) {
+                    AddToDoList { adding in
+                        viewModel.add(adding)
+                    }
+                }
             }
-            
         }
     }
 }
