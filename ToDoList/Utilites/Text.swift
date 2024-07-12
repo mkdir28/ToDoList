@@ -19,6 +19,11 @@ struct Info{
         static let text: String = "Add Task"
     }
     
+    //EditButton
+    struct EditButton{
+        static let text: String = "Edit"
+    }
+    
     //Logo Title of an app
     struct Logo{
         static let logoText: String = "ToDoList 🍊"
