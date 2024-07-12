@@ -9,11 +9,11 @@ import SwiftUI
 struct SortButton: View {
     
     var body: some View {
-        Image(systemName: "line.3.horizontal.decrease.circle.fill")
+        Image(systemName: "line.3.horizontal.decrease")
             .renderingMode(.original)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(width: 50, height: 50)
+            .frame(width: 30, height: 30)
             .foregroundColor(Color.infoColor)
     }
 }

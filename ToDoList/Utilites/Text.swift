@@ -33,4 +33,11 @@ struct Info{
         static let cancel: String = "Cancel"
         
     }
+    
+    //Sorting
+    struct Sorting{
+        static let byCompletion: String = "Sort by Completion Date"
+        static let byDeadline: String = "Sort by Deadline"
+        static let byCreation: String = "Sort by Creation Date"
+    }
 }

@@ -9,13 +9,14 @@ import SwiftUI
 
 struct AddToDoList: View {
     
-    @ObservedObject var listOfTasks = Functiin()
+    @ObservedObject var listOfTasks = ToDoListViewModel()
     
     @State private var addTask = Option(taskName: "")
     
     @State private var startDate:Date = Date()
     
     @State private var deadline:Date = Date()
+
     
     @Environment(\.dismiss)
     
@@ -54,14 +55,16 @@ struct AddToDoList: View {
                     DatePicker(Info.AddTask.startDate, 
                                selection: $startDate,
                                displayedComponents: [.date, .hourAndMinute])
-                    .foregroundStyle(Color.orange)
+                    .tint(Color.orange)
+                    .foregroundStyle(Color.accent)
                     .font(.setFont(size: 16,
                                    weight: .semibold))
                     
                     DatePicker(Info.AddTask.dueDate, 
                                selection: $deadline,
                                displayedComponents: [.date, .hourAndMinute])
-                    .foregroundStyle(Color.orange)
+                    .tint(Color.orange)
+                    .foregroundStyle(Color.accent)
                     .font(.setFont(size: 16,
                                    weight: .semibold))
                     
@@ -71,7 +74,7 @@ struct AddToDoList: View {
                     ToolbarItem(placement: .cancellationAction){
                         Button(action: reject){
                             Text(Info.AddTask.cancel)
-                                .foregroundStyle(Color.accentColor)
+                                .foregroundStyle(Color.accent)
                                 .font(.setFont(size: 20,
                                                weight: .bold))
                         }
@@ -79,8 +82,8 @@ struct AddToDoList: View {
                     ToolbarItem(placement: .confirmationAction) {
                         Button(action: commit) {
                             Text(Info.AddTask.addNewTask)
-                                .foregroundStyle(Color.accentColor)
-                                .font(.setFont(size: 20, 
+                                .foregroundStyle(Color.accent)
+                                .font(.setFont(size: 20,
                                                weight: .bold))
                         }
                         .disabled(addTask.taskName.isEmpty)
@@ -95,7 +98,7 @@ struct AddToDoList: View {
 }
 
 
-struct AddReminderView_Previews: PreviewProvider {
+struct AddToDoList_Previews: PreviewProvider {
   static var previews: some View {
       AddToDoList{ adding in
         print("Congratulations, you added a new task \(adding)")

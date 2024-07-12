@@ -35,26 +35,43 @@ final class ToDoListViewModel: ObservableObject{
         tasks.remove(atOffsets: deleteTask)
     }
     
-    
-    func sortByCreationDate(){
-        tasks.sort{
-            $1.byCreationDate > $0.byCreationDate
+    func sorting(sort: SortingToDoList){
+        switch sort{
+        case .byCompletion:
+            tasks.sort{
+                $0.byCompletionDate ?? Date.distantFuture < $1.byCompletionDate ??  Date.distantFuture
+            }
+        case .byDeadline:
+            tasks.sort{
+                $0.dedline ?? Date.distantFuture < $1.dedline ??  Date.distantFuture
+            }
+        case .byCreation:
+            tasks.sort{
+                $1.byCreationDate > $0.byCreationDate
+            }
         }
     }
     
+//    
+//    func sortByCreationDate(){
+//        tasks.sort{
+//            $1.byCreationDate > $0.byCreationDate
+//        }
+//    }
+//    
 
-    func sortByCompletionDate(){
-        tasks.sort{
-            $0.byCompletionDate ?? Date.distantFuture < $1.byCompletionDate ??  Date.distantFuture
-        }
-    }
+//    func sortByCompletionDate(){
+//        tasks.sort{
+//            $0.byCompletionDate ?? Date.distantFuture < $1.byCompletionDate ??  Date.distantFuture
+//        }
+//    }
     
-    
-    func sortByDeadline(){
-        tasks.sort{
-            $0.dedline ?? Date.distantFuture < $1.dedline ??  Date.distantFuture
-        }
-    }
+//    
+//    func sortByDeadline(){
+//        tasks.sort{
+//            $0.dedline ?? Date.distantFuture < $1.dedline ??  Date.distantFuture
+//        }
+//    }
     
     func loading(){
         isLoading = true

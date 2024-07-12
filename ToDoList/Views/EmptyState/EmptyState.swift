@@ -22,10 +22,18 @@ struct EmptyState: View {
                     
                 
                 Text(Info.EmptyState.noTasks)
-                    .font(.setFont(size: 22, weight: .medium))
-                    .padding(.init(top: 50, leading: 0, bottom: -10, trailing: 0))
+                    .font(.setFont(size: 22, 
+                                   weight: .medium)
+                        )
+                    .padding(.init(top: 50,
+                                   leading: 0,
+                                   bottom: -10,
+                                   trailing: 0)
+                            )
                 Text(Info.EmptyState.transcription)
-                    .font(.setFont(size: 18, weight: .regular))
+                    .font(.setFont(size: 18, 
+                                   weight: .regular)
+                        )
                     .multilineTextAlignment(.center)
                     .padding()
             }
