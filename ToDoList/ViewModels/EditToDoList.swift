@@ -10,22 +10,32 @@ import SwiftUI
 struct EditToDoList: View {
     
     @Binding var task: Option
+    
+//    @StateObject var viewModel = ToDoListViewModel()
+
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+    var onSave: (Option) -> Void
+    
+    @State private var updatingMode = AddDetailsToDoList()
         
     var body: some View {
         NavigationView {
             VStack {
-                TextField(Info.EditButton.text, text: $task.taskName)
+                AddToDoList(existingTask: task, onCommit: onSave)
+                    .navigationTitle(Info.EditButton.text)
+                    .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
-                        ToolbarItem(placement: .bottomBar) {
-                            Button(action: {}) {
-                                SaveChangesButton()
-                                    .padding(.bottom, 50)
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button(Info.Button.text) {
+                                presentationMode.wrappedValue.dismiss()
                             }
                         }
                     }
             }
-            .navigationTitle(Info.Logo.logoText)
-            
+           
         }
     }
 }
+
