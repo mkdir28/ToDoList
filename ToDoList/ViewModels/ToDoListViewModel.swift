@@ -31,8 +31,11 @@ final class ToDoListViewModel: ObservableObject{
     }
     
     
-    func delete(at deleteTask: IndexSet) {
-        tasks.remove(atOffsets: deleteTask)
+    func delete(_ deleteTask: Option) {
+        withAnimation{
+            tasks.removeAll(where: { $0.id == deleteTask.id })
+        }
+        
     }
     
     func sorting(sort: SortingToDoList){
@@ -51,6 +54,12 @@ final class ToDoListViewModel: ObservableObject{
             }
         }
     }
+    
+//    func toggleFlaged(_ task: Option){
+//        if let task = tasks.firstIndex(where: { $0.id == task.id }) {
+//            tasks[task].isFlagged.toggle()
+//        }
+//    }
     
 //    
 //    func sortByCreationDate(){
