@@ -10,7 +10,7 @@ struct ContentView: View {
     
     @StateObject var viewModel = ToDoListViewModel()
     
-    @Environment(\.editMode) private var editMode
+    @State private var editing = false
     
     @State private var addTask = false
     
@@ -36,8 +36,35 @@ struct ContentView: View {
                                     }
                                 Text(task.taskName)
                             }
+                            .swipeActions {
+                                Button(role: .destructive) {
+                                    viewModel.delete(task)
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                        .foregroundColor(Color.red)
+                                }
+                                
+//                                Button{
+//                                    editing.toggle()
+//                                } label: {
+//                                    Label("Flag", systemImage: "flag")
+//                                        .background(Color.infoColor)
+//                                }
+//                                .tint(Color.accent)
+                                
+                                Button{
+                                    editing.toggle()
+                                } label: {
+                                    Label("Edit", systemImage: "pencil")
+                                        .background(Color.infoColor)
+                                }
+                                .tint(Color.infoColor)
+                                
+                            
+                            }
                         }
-                        .onDelete(perform: viewModel.delete)
+//                        .onDelete(perform: viewModel.delete)
+                        
                     }
                 }
                 
