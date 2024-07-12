@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 enum SortingToDoList{
     case byCompletion
@@ -28,10 +29,10 @@ struct SortingPreview: View {
     var body: some View {
         Button(action: presentSortView) {
             SortButton()
-                .padding(.init(top: 0,
-                               leading: 0,
+                .padding(.init(top: -50,
+                               leading: 130,
                                bottom: 0,
-                               trailing: 300)
+                               trailing: -300)
                 )
         }
         .sheet(isPresented: $sorting) {
@@ -76,6 +77,7 @@ struct SortingPreview: View {
                 .padding()
             }
         }
+        
         
     }
 }
