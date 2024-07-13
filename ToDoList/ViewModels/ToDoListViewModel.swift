@@ -12,6 +12,8 @@ final class ToDoListViewModel: ObservableObject{
     
     @Published var isLoading = false
     
+    @Published var editing: Option?
+    
     @Published var tasks: [Option] {
         didSet{
             UserDefaults.standard.set(try? JSONEncoder().encode(tasks), forKey: "toDo")
@@ -25,6 +27,10 @@ final class ToDoListViewModel: ObservableObject{
         } ?? []
     }
     
+    func moveToDo(fromOffsets: IndexSet, toOffset: Int) {
+        tasks.move(fromOffsets: fromOffsets, toOffset: toOffset)
+    }
+//    
     
     func add(_ addTask: Option) {
         tasks.append(addTask)
@@ -37,6 +43,13 @@ final class ToDoListViewModel: ObservableObject{
         }
         
     }
+    
+    func edit(_ editTask: Option) {
+        if let index = tasks.firstIndex(where: { $0.id == editTask.id }) {
+            tasks[index] = editTask
+        }
+    }
+
     
     func sorting(sort: SortingToDoList){
         switch sort{
@@ -52,6 +65,8 @@ final class ToDoListViewModel: ObservableObject{
             tasks.sort{
                 $1.byCreationDate > $0.byCreationDate
             }
+        case .all:
+            break
         }
     }
     
@@ -74,8 +89,18 @@ final class ToDoListViewModel: ObservableObject{
 //            $0.byCompletionDate ?? Date.distantFuture < $1.byCompletionDate ??  Date.distantFuture
 //        }
 //    }
-    
 //    
+//    func byCompletion()-> Bool{
+//        if let due = byDeadline(){
+//
+//        }
+//        return byCompletion != nil
+//    }
+//    
+//    func byDeadline() -> String{
+//        return ""
+//    }
+//
 //    func sortByDeadline(){
 //        tasks.sort{
 //            $0.dedline ?? Date.distantFuture < $1.dedline ??  Date.distantFuture
