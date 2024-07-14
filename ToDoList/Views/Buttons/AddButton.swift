@@ -10,7 +10,8 @@ struct AddButton: View {
     
     var body: some View {
         Text(Info.Button.text)
-            .font(.title2)
+            .font(.setFont(size: 20,
+                           weight: .bold))
             .fontWeight(.semibold)
             .frame(width: 260, height: 50)
             .foregroundColor(.white)
