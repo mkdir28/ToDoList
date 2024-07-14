@@ -12,6 +12,8 @@ final class ToDoListViewModel: ObservableObject{
     
     @Published var isLoading = false
     
+    @State private var sortSelection: SortingToDoList = .all
+    
     @Published var editing: Option?
     
     @Published var tasks: [Option] {
@@ -50,23 +52,35 @@ final class ToDoListViewModel: ObservableObject{
         }
     }
 
+//    
+//    func sorting(sort: SortingToDoList){
+//        switch sort{
+//        case .byCompletion:
+//            tasks.sort{
+//                $0.byCompletionDate ?? Date.distantFuture < $1.byCompletionDate ??  Date.distantFuture
+//            }
+//        case .byDeadline:
+//            tasks.sort{
+//                $0.dedline ?? Date.distantFuture < $1.dedline ??  Date.distantFuture
+//            }
+//        case .byCreation:
+//            tasks.sort{
+//                $1.byCreationDate > $0.byCreationDate
+//            }
+//        case .all:
+//            break
+//        }
+//    }
     
-    func sorting(sort: SortingToDoList){
-        switch sort{
-        case .byCompletion:
-            tasks.sort{
-                $0.byCompletionDate ?? Date.distantFuture < $1.byCompletionDate ??  Date.distantFuture
-            }
-        case .byDeadline:
-            tasks.sort{
-                $0.dedline ?? Date.distantFuture < $1.dedline ??  Date.distantFuture
-            }
-        case .byCreation:
-            tasks.sort{
-                $1.byCreationDate > $0.byCreationDate
-            }
-        case .all:
-            break
+    func filering(){
+        if sortSelection == SortingToDoList.byCompletion{
+            sortByCompletione()
+        }
+        if sortSelection == SortingToDoList.byCreation{
+            sortByCreationDate()
+        }
+        if sortSelection == SortingToDoList.byDeadline{
+            sortByDeadline()
         }
     }
     
@@ -77,19 +91,19 @@ final class ToDoListViewModel: ObservableObject{
 //    }
     
 //    
-//    func sortByCreationDate(){
-//        tasks.sort{
-//            $1.byCreationDate > $0.byCreationDate
-//        }
-//    }
-//    
+    func sortByCreationDate(){
+        tasks.sort{
+            $1.byCreationDate > $0.byCreationDate
+        }
+    }
+    
 
-//    func sortByCompletionDate(){
-//        tasks.sort{
-//            $0.byCompletionDate ?? Date.distantFuture < $1.byCompletionDate ??  Date.distantFuture
-//        }
-//    }
-//    
+    func sortByCompletione(){
+        tasks.sort{
+            $0.byCompletionDate ?? Date.distantFuture < $1.byCompletionDate ??  Date.distantFuture
+        }
+    }
+    
 //    func byCompletion()-> Bool{
 //        if let due = byDeadline(){
 //
@@ -100,21 +114,22 @@ final class ToDoListViewModel: ObservableObject{
 //    func byDeadline() -> String{
 //        return ""
 //    }
-//
-//    func sortByDeadline(){
-//        tasks.sort{
-//            $0.dedline ?? Date.distantFuture < $1.dedline ??  Date.distantFuture
-//        }
-//    }
-    
-    func loading(){
-        isLoading = true
-        let seconds = 5.0
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds){
-            self.isLoading = false
+
+    func sortByDeadline(){
+        tasks.sort{
+            $0.dedline ?? Date.distantFuture < $1.dedline ??  Date.distantFuture
         }
     }
     
+//    func loading(){
+////        isLoading = true
+////        let seconds = 5.0
+////        DispatchQueue.main.asyncAfter(deadline: .now() + seconds){
+////            self.isLoading = false
+////        }
+//        
+//    }
+//    
     var isEmpty: Bool{
         tasks.isEmpty
     }
