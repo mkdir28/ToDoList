@@ -43,6 +43,5 @@ struct WelcomePage: View {
                 }
             }
         }
-        .accentColor(Color.backroundColor)
     }
 }

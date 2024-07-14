@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension Color{
-    static let backroundColor = Color("backround")
+    static let orange = Color("backround")
     static let infoColor = Color("infoColor")
     static let accentColor = Color("accentColor")
 }

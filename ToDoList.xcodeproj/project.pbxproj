@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C714B1B2C40C2E400B0AA81 /* EditToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C714B1A2C40C2E400B0AA81 /* EditToDoList.swift */; };
-		9C714B202C412A6D00B0AA81 /* AddDetailsToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C714B1F2C412A6D00B0AA81 /* AddDetailsToDoList.swift */; };
+		9C714B742C43482A00B0AA81 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C714B732C43482A00B0AA81 /* MainPageViewModel.swift */; };
+		9C714B762C434C9600B0AA81 /* GetStartedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C714B752C434C9600B0AA81 /* GetStartedButton.swift */; };
 		9CDCBB732C3EA28300932522 /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBB722C3EA28300932522 /* ToDoListApp.swift */; };
 		9CDCBB752C3EA28300932522 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBB742C3EA28300932522 /* ContentView.swift */; };
 		9CDCBB7A2C3EA28600932522 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CDCBB792C3EA28600932522 /* Preview Assets.xcassets */; };
@@ -17,8 +17,7 @@
 		9CDCBB902C3EA28600932522 /* ToDoListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBB8F2C3EA28600932522 /* ToDoListUITestsLaunchTests.swift */; };
 		9CDCBBA12C3EA2E800932522 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBBA02C3EA2E800932522 /* Option.swift */; };
 		9CDCBBA42C3EA4D700932522 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBBA32C3EA4D700932522 /* Color+Ext.swift */; };
-		9CDCBBA62C3EA4F200932522 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBBA52C3EA4F200932522 /* Date+Ext.swift */; };
-		9CDCBBAC2C3EC65B00932522 /* AddToDoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBBAB2C3EC65B00932522 /* AddToDoList.swift */; };
+		9CDCBBAC2C3EC65B00932522 /* AddToDoListModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBBAB2C3EC65B00932522 /* AddToDoListModelView.swift */; };
 		9CDCBBB02C3FE84700932522 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBBAF2C3FE84700932522 /* EmptyState.swift */; };
 		9CDCBBB22C4007E700932522 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBBB12C4007E700932522 /* Text.swift */; };
 		9CDCBBB42C40091B00932522 /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDCBBB32C40091B00932522 /* Font+Ext.swift */; };
@@ -48,8 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9C714B1A2C40C2E400B0AA81 /* EditToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditToDoList.swift; sourceTree = "<group>"; };
-		9C714B1F2C412A6D00B0AA81 /* AddDetailsToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDetailsToDoList.swift; sourceTree = "<group>"; };
+		9C714B732C43482A00B0AA81 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
+		9C714B752C434C9600B0AA81 /* GetStartedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedButton.swift; sourceTree = "<group>"; };
 		9CDCBB6F2C3EA28300932522 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CDCBB722C3EA28300932522 /* ToDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListApp.swift; sourceTree = "<group>"; };
 		9CDCBB742C3EA28300932522 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,8 +60,7 @@
 		9CDCBB8F2C3EA28600932522 /* ToDoListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9CDCBBA02C3EA2E800932522 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		9CDCBBA32C3EA4D700932522 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
-		9CDCBBA52C3EA4F200932522 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
-		9CDCBBAB2C3EC65B00932522 /* AddToDoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoList.swift; sourceTree = "<group>"; };
+		9CDCBBAB2C3EC65B00932522 /* AddToDoListModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoListModelView.swift; sourceTree = "<group>"; };
 		9CDCBBAF2C3FE84700932522 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		9CDCBBB12C4007E700932522 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		9CDCBBB32C40091B00932522 /* Font+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				9CDCBBA32C3EA4D700932522 /* Color+Ext.swift */,
-				9CDCBBA52C3EA4F200932522 /* Date+Ext.swift */,
 				9CDCBBB32C40091B00932522 /* Font+Ext.swift */,
 			);
 			path = Extentions;
@@ -199,11 +196,10 @@
 		9CDCBBAA2C3EC64400932522 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				9CDCBBAB2C3EC65B00932522 /* AddToDoList.swift */,
+				9CDCBBAB2C3EC65B00932522 /* AddToDoListModelView.swift */,
 				9CDCBBC12C4051AE00932522 /* ToDoListViewModel.swift */,
 				9CF8B33E2C4074E700740698 /* SortingToDoList.swift */,
-				9C714B1A2C40C2E400B0AA81 /* EditToDoList.swift */,
-				9C714B1F2C412A6D00B0AA81 /* AddDetailsToDoList.swift */,
+				9C714B732C43482A00B0AA81 /* MainPageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -229,6 +225,7 @@
 			children = (
 				9CDCBBBD2C401C1B00932522 /* AddButton.swift */,
 				9CDCBBBF2C401DE000932522 /* SortButton.swift */,
+				9C714B752C434C9600B0AA81 /* GetStartedButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -367,16 +364,15 @@
 				9CDCBB752C3EA28300932522 /* ContentView.swift in Sources */,
 				9CDCBBA42C3EA4D700932522 /* Color+Ext.swift in Sources */,
 				9CDCBBA12C3EA2E800932522 /* Option.swift in Sources */,
-				9C714B202C412A6D00B0AA81 /* AddDetailsToDoList.swift in Sources */,
+				9C714B762C434C9600B0AA81 /* GetStartedButton.swift in Sources */,
 				9CF8B33F2C4074E700740698 /* SortingToDoList.swift in Sources */,
 				9CDCBBB82C40153000932522 /* LoadingView.swift in Sources */,
 				9CDCBBB02C3FE84700932522 /* EmptyState.swift in Sources */,
 				9CDCBBB22C4007E700932522 /* Text.swift in Sources */,
+				9C714B742C43482A00B0AA81 /* MainPageViewModel.swift in Sources */,
 				9CDCBBC02C401DE000932522 /* SortButton.swift in Sources */,
 				9CDCBB732C3EA28300932522 /* ToDoListApp.swift in Sources */,
-				9CDCBBAC2C3EC65B00932522 /* AddToDoList.swift in Sources */,
-				9CDCBBA62C3EA4F200932522 /* Date+Ext.swift in Sources */,
-				9C714B1B2C40C2E400B0AA81 /* EditToDoList.swift in Sources */,
+				9CDCBBAC2C3EC65B00932522 /* AddToDoListModelView.swift in Sources */,
 				9CDCBBB42C40091B00932522 /* Font+Ext.swift in Sources */,
 				9CDCBBBE2C401C1B00932522 /* AddButton.swift in Sources */,
 			);

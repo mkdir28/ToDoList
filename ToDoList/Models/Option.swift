@@ -14,4 +14,5 @@ struct Option: Codable, Identifiable{
     var dedline: Date?
     var byCompletionDate: Date?
     var byCreationDate = Date()
+    var reminderIsOn: Bool = false
 }

@@ -62,30 +62,11 @@ struct MainPageViewModel: View {
                                     Label("Delete", systemImage: "trash")
                                         .foregroundColor(Color.red)
                                 }
-//                                Button{
-//                                    editing.toggle()
-//                                } label: {
-//                                    Label("Flag", systemImage: "flag")
-//                                        .background(Color.infoColor)
-//                                }
-//                                .tint(Color.accent)
-                                
-//                                Button{
-//                                    editing.toggle()
-//                                } label: {
-//                                    Label("Edit", systemImage: "pencil")
-////                                        .onMove(perform: viewModel.edit)
-//                                        .background(Color.infoColor)
-//                                }
-//                                .tint(Color.infoColor)
-                                
                             }
                         }
                         .onMove(perform: viewModel.moveToDo)
-//                        .onDelete(perform: viewModel.delete)
                     }
                 }
-                
             }
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
@@ -101,7 +82,6 @@ struct MainPageViewModel: View {
                         SortButton()
                     }
                 }
-                
             }
             .navigationTitle(Info.Logo.logoText)
             .font(.setFont(size: 16,
@@ -121,7 +101,10 @@ struct MainPageViewModel: View {
                     viewModel.add(adding)
                 }
             }
-            .background(Color.backroundColor)
+            .background(Color.orange)
+            .onAppear {
+                viewModel.filering()
+            }
         }
     }
 }

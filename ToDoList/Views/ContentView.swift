@@ -21,7 +21,6 @@ struct ContentView: View {
                     .transition(AnyTransition.opacity.animation(.easeInOut(duration: 1.0)))
             } else {
                 LoadingView()
-                // Added to simulate asynchronous data loading
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             withAnimation {
@@ -47,6 +46,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-
     }
 }

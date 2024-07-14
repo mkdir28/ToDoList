@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EmptyState: View {
+    
     var body: some View {
         ZStack{
             Color(.systemBackground)
@@ -30,6 +31,8 @@ struct EmptyState: View {
                                    bottom: -10,
                                    trailing: 0)
                             )
+                
+                
                 Text(Info.EmptyState.transcription)
                     .font(.setFont(size: 18, 
                                    weight: .regular)

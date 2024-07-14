@@ -10,11 +10,7 @@ import SwiftUI
 
 final class ToDoListViewModel: ObservableObject{
     
-    @Published var isLoading = false
-    
     @State private var sortSelection: SortingToDoList = .all
-    
-    @Published var editing: Option?
     
     @Published var tasks: [Option] {
         didSet{
@@ -28,14 +24,20 @@ final class ToDoListViewModel: ObservableObject{
               try? JSONDecoder().decode([Option].self, from: $0)
         } ?? []
     }
+ 
     
     func moveToDo(fromOffsets: IndexSet, toOffset: Int) {
         tasks.move(fromOffsets: fromOffsets, toOffset: toOffset)
     }
-//    
+  
     
     func add(_ addTask: Option) {
-        tasks.append(addTask)
+        if let index = tasks.firstIndex(where: { $0.id == addTask.id }) {
+            tasks[index] = addTask
+        }
+        else{
+            tasks.append(addTask)
+        }
     }
     
     
@@ -45,32 +47,18 @@ final class ToDoListViewModel: ObservableObject{
         }
         
     }
+
     
-    func edit(_ editTask: Option) {
-        if let index = tasks.firstIndex(where: { $0.id == editTask.id }) {
-            tasks[index] = editTask
+    func updating(toDo: Option) {
+        if let index = tasks.firstIndex(where: { $0.id == toDo.id }) {
+            tasks[index] = toDo
+        } else {
+            var newToDo = toDo
+            newToDo.id = UUID()
+            tasks.append(newToDo)
         }
     }
-
-//    
-//    func sorting(sort: SortingToDoList){
-//        switch sort{
-//        case .byCompletion:
-//            tasks.sort{
-//                $0.byCompletionDate ?? Date.distantFuture < $1.byCompletionDate ??  Date.distantFuture
-//            }
-//        case .byDeadline:
-//            tasks.sort{
-//                $0.dedline ?? Date.distantFuture < $1.dedline ??  Date.distantFuture
-//            }
-//        case .byCreation:
-//            tasks.sort{
-//                $1.byCreationDate > $0.byCreationDate
-//            }
-//        case .all:
-//            break
-//        }
-//    }
+    
     
     func filering(){
         if sortSelection == SortingToDoList.byCompletion{
@@ -90,7 +78,7 @@ final class ToDoListViewModel: ObservableObject{
 //        }
 //    }
     
-//    
+ 
     func sortByCreationDate(){
         tasks.sort{
             $1.byCreationDate > $0.byCreationDate
@@ -104,35 +92,15 @@ final class ToDoListViewModel: ObservableObject{
         }
     }
     
-//    func byCompletion()-> Bool{
-//        if let due = byDeadline(){
-//
-//        }
-//        return byCompletion != nil
-//    }
-//    
-//    func byDeadline() -> String{
-//        return ""
-//    }
 
     func sortByDeadline(){
         tasks.sort{
             $0.dedline ?? Date.distantFuture < $1.dedline ??  Date.distantFuture
         }
     }
+
     
-//    func loading(){
-////        isLoading = true
-////        let seconds = 5.0
-////        DispatchQueue.main.asyncAfter(deadline: .now() + seconds){
-////            self.isLoading = false
-////        }
-//        
-//    }
-//    
     var isEmpty: Bool{
         tasks.isEmpty
     }
-    
 }
-
