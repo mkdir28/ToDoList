@@ -17,11 +17,7 @@ struct Info{
     //AddButton
     struct Button{
         static let text: String = "Add Task"
-    }
-    
-    //EditButton
-    struct EditButton{
-        static let text: String = "Edit"
+        static let start: String = "Getting Started"
     }
     
     //Logo Title of an app
@@ -34,15 +30,8 @@ struct Info{
         static let text: String = "Add new task"
         static let startDate: String = "Start Date"
         static let dueDate: String = "Due Date"
-        static let addNewTask: String = "Add"
+        static let addNewTask: String = "Save"
         static let cancel: String = "Cancel"
         
-    }
-    
-    //Sorting
-    struct Sorting{
-        static let byCompletion: String = "Sort by Completion Date"
-        static let byDeadline: String = "Sort by Deadline"
-        static let byCreation: String = "Sort by Creation Date"
     }
 }
