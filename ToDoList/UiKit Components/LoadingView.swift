@@ -7,20 +7,8 @@
 
 import SwiftUI
 
-struct ActivityIndicator: UIViewRepresentable {
-    
-    func makeUIView(context: Context) -> UIActivityIndicatorView {
-        let activityIndicatorView = UIActivityIndicatorView(style: .large)
-        activityIndicatorView.color = UIColor.accentColor
-        activityIndicatorView.startAnimating()
-        return activityIndicatorView
-    }
-    
-    func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {}
-}
-
-
 struct LoadingView: View {
+    
     var body: some View {
         ZStack {
             Color(Color.accentColor)
@@ -30,5 +18,31 @@ struct LoadingView: View {
                 .progressViewStyle(CircularProgressViewStyle(tint: .infoColor))
                 .scaleEffect(2)
         }
+    }
+}
+
+struct WelcomePage: View {
+    
+    @Binding var showToDoList: Bool
+    
+    var body: some View {
+        ZStack {
+            Color.accentColor.ignoresSafeArea()
+            VStack {
+                Text("Tangerine ToDoList🍊!")
+                    .font(.setFont(size: 25,
+                                   weight: .bold))
+                    .multilineTextAlignment(.center) 
+                    .padding()
+                Button{
+                    withAnimation {
+                        showToDoList = true
+                    }
+                }label: {
+                    GetStartedButton()
+                }
+            }
+        }
+        .accentColor(Color.backroundColor)
     }
 }
